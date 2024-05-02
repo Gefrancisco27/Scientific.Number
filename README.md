@@ -50,3 +50,93 @@
 <script src="script.js"></script>
 </body>
 </html>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .container {
+    margin: 20px auto;
+    width: 80%;
+    text-align: center;
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    padding: 8px;
+    width: 200px;
+  }
+  
+  button {
+    padding: 8px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  #result {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+
+  Copy code
+document.getElementById('scientificForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  var input = document.getElementById('scientificNumber').value;
+  var result = document.getElementById('result');
+
+  if (isScientificNumber(input)) {
+    result.textContent = "Yes, it is a scientific number.";
+  } else {
+    result.textContent = "No, it is not a scientific number.";
+  }
+});
+
+function isScientificNumber(input) {
+  var scientificNumberRegex = /^[-+]?[0-9]*\.?[0-9]+([eE][-+]?[0-9]+)?$/;
+  return scientificNumberRegex.test(input);
+}
